@@ -1,0 +1,43 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: signalguard-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: signalguard
+      POSTGRES_PASSWORD: signalguard_secret_password
+      POSTGRES_DB: signalguard
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U signalguard -d signalguard"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: signalguard-api
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://signalguard:signalguard_secret_password@postgres:5432/signalguard
+      ENVIRONMENT: production
+      SECRET_KEY: production-signalguard-secure-secret-key-32-chars
+      MAX_CONCURRENT_CHECKS: 100
+      DEFAULT_CHECK_INTERVAL_SECONDS: 30
+      DEFAULT_TIMEOUT_SECONDS: 10
+      ALLOW_PRIVATE_IPS: "false"
+    ports:
+      - "8000:8000"
+
+volumes:
+  pgdata:

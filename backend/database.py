@@ -1,17 +1,5 @@
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, declarative_base
+"""Legacy database re-exports pointing to modern backend.app.db.session."""
+from backend.app.db.base import Base
+from backend.app.db.session import SessionLocal, engine, get_db
 
-DATABASE_URL = "sqlite:///./signalguard.db"
-
-engine = create_engine(
-      DATABASE_URL,
-      connect_args={"check_same_thread": False}
-)
-
-SessionLocal = sessionmaker(
-      autocommit=False,
-      autoflush=False,
-      bind=engine
-)
-
-Base = declarative_base()
+__all__ = ["Base", "engine", "SessionLocal", "get_db"]
