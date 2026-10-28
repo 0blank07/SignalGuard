@@ -1,8 +1,9 @@
-import pytest
 import httpx
-from backend.app.db.models.endpoint import MonitoredEndpoint
-from backend.app.db.models.incident import Incident, IncidentStatus, IncidentSeverity
+import pytest
 from sqlalchemy.orm import Session
+
+from backend.app.db.models.endpoint import MonitoredEndpoint
+from backend.app.db.models.incident import Incident, IncidentSeverity, IncidentStatus
 
 
 @pytest.mark.asyncio

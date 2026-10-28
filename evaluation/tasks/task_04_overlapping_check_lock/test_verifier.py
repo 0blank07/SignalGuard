@@ -1,5 +1,5 @@
 import concurrent.futures
-import pytest
+
 from target import ExecutionCoordinator
 
 
@@ -30,7 +30,6 @@ def test_verifier_duplicate_acquire_blocked():
 def test_verifier_concurrent_acquisition_single_winner():
     coord = ExecutionCoordinator()
     endpoint_id = 99
-    winners = 0
 
     def attempt_acquire():
         return coord.acquire(endpoint_id)

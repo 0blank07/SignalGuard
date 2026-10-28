@@ -1,7 +1,9 @@
 import enum
 from datetime import datetime
+
 from sqlalchemy import DateTime, Enum, ForeignKey, Integer, String, Text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
+
 from backend.app.db.base import Base, TimestampMixin, utc_now
 
 

@@ -1,4 +1,3 @@
-import pytest
 from target import ExecutionCoordinator
 
 

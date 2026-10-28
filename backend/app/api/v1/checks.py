@@ -1,6 +1,8 @@
 import math
-from fastapi import APIRouter, Depends, Query, status
+
+from fastapi import APIRouter, Depends, Query
 from sqlalchemy.orm import Session
+
 from backend.app.api.deps import verify_api_key
 from backend.app.core.errors import NotFoundError
 from backend.app.db.models.check_result import CheckResult
@@ -10,7 +12,6 @@ from backend.app.engine.incident_manager import IncidentManager
 from backend.app.engine.prober import execute_probe
 from backend.app.schemas.check import CheckResultResponse, TriggerCheckResponse
 from backend.app.schemas.common import PaginatedResponse
-
 
 router = APIRouter(prefix="/endpoints", tags=["Checks"])
 

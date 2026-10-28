@@ -1,8 +1,6 @@
 import logging
 import re
 import sys
-from typing import Any
-
 
 SENSITIVE_PATTERNS = [
     re.compile(r"(?i)(password|secret|token|api[_-]?key|authorization)[=\s:]+([^\s&,;]+)"),

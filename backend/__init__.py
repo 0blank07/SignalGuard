@@ -1,0 +1,1 @@
+"""SignalGuard backend root package."""

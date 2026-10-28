@@ -1,6 +1,8 @@
 from datetime import datetime
 from typing import Any
-from pydantic import BaseModel, Field, HttpUrl
+
+from pydantic import BaseModel, Field
+
 from backend.app.db.models.endpoint import EndpointStatus
 
 

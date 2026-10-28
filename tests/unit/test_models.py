@@ -1,11 +1,12 @@
+
 import pytest
-from datetime import datetime, timezone
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+
 from backend.app.db.base import Base
-from backend.app.db.models.endpoint import MonitoredEndpoint, EndpointStatus
 from backend.app.db.models.check_result import CheckResult
-from backend.app.db.models.incident import Incident, IncidentEvent, IncidentStatus, IncidentSeverity
+from backend.app.db.models.endpoint import EndpointStatus, MonitoredEndpoint
+from backend.app.db.models.incident import Incident, IncidentEvent, IncidentSeverity, IncidentStatus
 
 
 @pytest.fixture

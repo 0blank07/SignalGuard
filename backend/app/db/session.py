@@ -1,9 +1,10 @@
 from collections.abc import Generator
 from contextlib import contextmanager
+
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session, sessionmaker
-from backend.app.config import get_settings
 
+from backend.app.config import get_settings
 
 settings = get_settings()
 

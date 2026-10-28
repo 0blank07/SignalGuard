@@ -1,14 +1,15 @@
-import pytest
-from backend.app.config import Settings, get_settings
-from backend.app.core.errors import (
-    AppException,
-    NotFoundError,
-    ValidationError,
-    ConflictError,
-    SSRFSecurityException,
-)
-from backend.app.core.logging import RedactingFormatter, configure_logging
 import logging
+
+import pytest
+
+from backend.app.config import Settings
+from backend.app.core.errors import (
+    ConflictError,
+    NotFoundError,
+    SSRFSecurityException,
+    ValidationError,
+)
+from backend.app.core.logging import RedactingFormatter
 
 
 def test_settings_default_values():

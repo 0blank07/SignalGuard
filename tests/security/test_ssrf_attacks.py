@@ -1,4 +1,5 @@
 import pytest
+
 from backend.app.core.errors import SSRFSecurityException
 from backend.app.core.security import validate_target_url
 

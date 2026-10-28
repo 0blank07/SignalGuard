@@ -1,9 +1,7 @@
-from collections.abc import Generator
-from fastapi import Header, HTTPException, Security, status
-from sqlalchemy.orm import Session
+from fastapi import Header
+
 from backend.app.config import get_settings
 from backend.app.core.errors import AuthenticationError
-from backend.app.db.session import get_db
 
 
 def verify_api_key(

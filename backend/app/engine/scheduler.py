@@ -1,14 +1,13 @@
 import asyncio
 import logging
-from datetime import timedelta
-from sqlalchemy import select
-from sqlalchemy.orm import Session, sessionmaker
+
+from sqlalchemy.orm import sessionmaker
+
 from backend.app.config import get_settings
 from backend.app.db.base import utc_now
 from backend.app.db.models.endpoint import EndpointStatus, MonitoredEndpoint
 from backend.app.engine.incident_manager import IncidentManager
 from backend.app.engine.prober import execute_probe
-
 
 logger = logging.getLogger("signalguard.scheduler")
 
@@ -136,7 +135,7 @@ class MonitoringScheduler:
                     self._stop_event.wait(),
                     timeout=self.tick_interval_seconds,
                 )
-            except asyncio.TimeoutError:
+            except TimeoutError:
                 pass
         logger.info("MonitoringScheduler loop terminated.")
 
@@ -150,5 +149,5 @@ class MonitoringScheduler:
             self._stop_event.set()
             try:
                 await asyncio.wait_for(self._loop_task, timeout=5.0)
-            except asyncio.TimeoutError:
+            except TimeoutError:
                 self._loop_task.cancel()

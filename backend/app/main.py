@@ -1,7 +1,9 @@
 from contextlib import asynccontextmanager
+
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+
 from backend.app.api.v1.router import api_v1_router
 from backend.app.config import get_settings
 from backend.app.core.errors import AppException
@@ -9,7 +11,6 @@ from backend.app.core.logging import configure_logging
 from backend.app.db.base import Base
 from backend.app.db.session import SessionLocal, engine
 from backend.app.engine.scheduler import MonitoringScheduler
-
 
 settings = get_settings()
 scheduler: MonitoringScheduler | None = None

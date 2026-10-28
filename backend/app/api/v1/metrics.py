@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy import text
 from sqlalchemy.orm import Session
+
 from backend.app.api.deps import verify_api_key
 from backend.app.config import get_settings
 from backend.app.core.errors import NotFoundError
@@ -10,7 +11,6 @@ from backend.app.db.models.incident import Incident, IncidentStatus
 from backend.app.db.session import get_db
 from backend.app.engine.metrics_calculator import MetricsCalculator
 from backend.app.schemas.metrics import EndpointMetricsResponse, SystemHealthResponse
-
 
 router = APIRouter(tags=["Metrics & Health"])
 

@@ -1,9 +1,10 @@
 import asyncio
+
 import pytest
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+
 from backend.app.db.base import Base
-from backend.app.db.models.endpoint import MonitoredEndpoint
 from backend.app.engine.scheduler import MonitoringScheduler
 
 

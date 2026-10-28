@@ -1,8 +1,10 @@
 import enum
-from datetime import datetime, timezone
+from datetime import datetime
 from typing import Any
+
 from sqlalchemy import JSON, Boolean, DateTime, Enum, Integer, String, Text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
+
 from backend.app.db.base import Base, TimestampMixin, utc_now
 
 

@@ -1,5 +1,6 @@
 from sqlalchemy import desc
 from sqlalchemy.orm import Session
+
 from backend.app.db.models.check_result import CheckResult
 from backend.app.db.models.endpoint import MonitoredEndpoint
 from backend.app.schemas.metrics import EndpointMetricsResponse

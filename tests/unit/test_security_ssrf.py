@@ -1,11 +1,12 @@
+import ipaddress
+
 import pytest
+
 from backend.app.core.errors import SSRFSecurityException
 from backend.app.core.security import (
-    validate_target_url,
-    resolve_and_verify_ip,
     is_ip_allowed,
+    validate_target_url,
 )
-import ipaddress
 
 
 def test_allowed_public_url():

@@ -1,5 +1,4 @@
-import pytest
-from backend.app.engine.retry import RetryPolicy, should_retry_error, calculate_backoff_delay
+from backend.app.engine.retry import RetryPolicy, calculate_backoff_delay, should_retry_error
 
 
 def test_retry_policy_defaults():

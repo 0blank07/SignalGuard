@@ -1,7 +1,8 @@
 from dataclasses import dataclass
 from datetime import timedelta
-from sqlalchemy import select
+
 from sqlalchemy.orm import Session
+
 from backend.app.config import get_settings
 from backend.app.db.base import utc_now
 from backend.app.db.models.check_result import CheckResult

@@ -1,7 +1,8 @@
-import pytest
 import httpx
+import pytest
+
 from backend.app.db.models.endpoint import MonitoredEndpoint
-from backend.app.engine.prober import execute_probe, ProbeExecutionSummary
+from backend.app.engine.prober import ProbeExecutionSummary, execute_probe
 from backend.app.engine.retry import RetryPolicy
 
 

@@ -2,6 +2,7 @@ import ipaddress
 import socket
 from dataclasses import dataclass
 from urllib.parse import urlparse
+
 from backend.app.core.errors import SSRFSecurityException
 
 # Cloud metadata addresses and hostnames

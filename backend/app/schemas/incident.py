@@ -1,5 +1,7 @@
 from datetime import datetime
+
 from pydantic import BaseModel, Field
+
 from backend.app.db.models.incident import IncidentSeverity, IncidentStatus
 
 

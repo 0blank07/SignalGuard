@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+
 from evaluation.common.harness import EvaluationHarness
 from evaluation.common.types import TaskEvaluationReport, TaskSpec
 

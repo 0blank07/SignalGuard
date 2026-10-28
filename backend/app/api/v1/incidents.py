@@ -1,13 +1,14 @@
 import math
-from fastapi import APIRouter, Depends, Query, status
+
+from fastapi import APIRouter, Depends, Query
 from sqlalchemy.orm import Session
+
 from backend.app.api.deps import verify_api_key
 from backend.app.core.errors import NotFoundError
 from backend.app.db.models.incident import Incident, IncidentStatus
 from backend.app.db.session import get_db
 from backend.app.schemas.common import PaginatedResponse
 from backend.app.schemas.incident import IncidentResponse, ResolveIncidentRequest
-
 
 router = APIRouter(prefix="/incidents", tags=["Incidents"])
 

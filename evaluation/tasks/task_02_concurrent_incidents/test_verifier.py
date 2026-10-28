@@ -1,5 +1,5 @@
 import concurrent.futures
-import pytest
+
 from target import IncidentStore
 
 
@@ -20,7 +20,8 @@ def test_verifier_concurrent_failures_single_incident():
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=concurrency) as executor:
         futures = [executor.submit(worker, i) for i in range(concurrency)]
-        results = [f.result() for f in futures]
+        for f in futures:
+            f.result()
 
     # Verify how many OPEN incidents exist for this endpoint
     open_incidents = [

@@ -1,10 +1,10 @@
+import httpx
 import pytest
 import pytest_asyncio
-import httpx
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.pool import StaticPool
-from backend.app.config import Settings, get_settings
+
 from backend.app.db.base import Base
 from backend.app.db.session import get_db
 from backend.app.main import create_app

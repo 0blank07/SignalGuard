@@ -1,10 +1,10 @@
 import pytest
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+
 from backend.app.db.base import Base
-from backend.app.db.models.endpoint import MonitoredEndpoint, EndpointStatus
+from backend.app.db.models.endpoint import MonitoredEndpoint
 from backend.app.db.models.incident import Incident, IncidentStatus
-from backend.app.db.models.check_result import CheckResult
 from backend.app.engine.incident_manager import IncidentManager
 from backend.app.engine.prober import ProbeExecutionSummary
 

@@ -1,5 +1,4 @@
-import pytest
-from target import should_retry, compute_backoff_delay
+from target import compute_backoff_delay, should_retry
 
 
 def test_public_timeout_is_retried():

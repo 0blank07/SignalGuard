@@ -1,9 +1,11 @@
-import pytest
+from datetime import UTC, datetime
+
 import httpx
-from datetime import datetime, timezone
-from backend.app.db.models.endpoint import MonitoredEndpoint
-from backend.app.db.models.check_result import CheckResult
+import pytest
 from sqlalchemy.orm import Session
+
+from backend.app.db.models.check_result import CheckResult
+from backend.app.db.models.endpoint import MonitoredEndpoint
 
 
 @pytest.mark.asyncio
@@ -20,7 +22,7 @@ async def test_endpoint_metrics_and_history(async_client: httpx.AsyncClient, tes
                 status_code=200,
                 response_time_ms=50.0 + (i * 10),
                 is_success=True,
-                created_at=datetime.now(timezone.utc),
+                created_at=datetime.now(UTC),
             )
         )
     test_db.add(
@@ -31,7 +33,7 @@ async def test_endpoint_metrics_and_history(async_client: httpx.AsyncClient, tes
             is_success=False,
             error_type="HTTP_ERROR",
             error_message="500 Internal Server Error",
-            created_at=datetime.now(timezone.utc),
+            created_at=datetime.now(UTC),
         )
     )
     test_db.commit()

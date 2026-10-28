@@ -1,4 +1,3 @@
-import pytest
 from backend.app.db.models.endpoint import EndpointStatus
 from backend.app.engine.state_machine import evaluate_health_transition
 
