@@ -1,0 +1,8 @@
+{
+  "id": "task_02_concurrent_incidents",
+  "title": "Concurrency-Safe Incident Deduplication",
+  "category": "concurrency",
+  "difficulty": "medium",
+  "timeout_seconds": 15,
+  "description": "Fix a race condition where concurrent failure checks create duplicate active incidents for the same endpoint, violating the single active incident invariant."
+}

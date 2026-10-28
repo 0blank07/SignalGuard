@@ -1,0 +1,8 @@
+{
+  "id": "task_04_overlapping_check_lock",
+  "title": "Check Stampede & Overlapping Run Prevention",
+  "category": "async",
+  "difficulty": "medium",
+  "timeout_seconds": 15,
+  "description": "Fix an asynchronous scheduler bug where slow or hanging endpoints accumulate overlapping probe tasks, exhausting network sockets and CPU resources."
+}

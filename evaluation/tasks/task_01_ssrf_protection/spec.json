@@ -1,0 +1,8 @@
+{
+  "id": "task_01_ssrf_protection",
+  "title": "Securing API Monitoring Against SSRF & DNS Rebinding Evasions",
+  "category": "security",
+  "difficulty": "hard",
+  "timeout_seconds": 15,
+  "description": "Fix a vulnerable URL validation routine that uses naive regex and string matching, leaving the prober vulnerable to Server-Side Request Forgery (SSRF), octal/hex IP evasion, link-local metadata leaks, and IPv6 bypasses."
+}

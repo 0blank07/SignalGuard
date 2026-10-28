@@ -1,0 +1,8 @@
+{
+  "id": "task_03_timeout_retry_backoff",
+  "title": "Bounded Retry Policy & Non-Transient Error Filtering",
+  "category": "reliability",
+  "difficulty": "medium",
+  "timeout_seconds": 15,
+  "description": "Fix a broken retry policy that incorrectly retries deterministic 4xx client errors, computes unbounded delay without jitter, and causes retry storms under network degradation."
+}

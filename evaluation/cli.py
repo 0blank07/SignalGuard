@@ -50,7 +50,7 @@ def main() -> None:
         if args.json:
             print(json.dumps(report.to_dict(), indent=2))
         else:
-            status_symbol = "✓ PASS" if report.passed else "✗ FAIL"
+            status_symbol = "[PASS]" if report.passed else "[FAIL]"
             print("\n" + "=" * 60)
             print(f"Task:    {report.task_id} [{report.target}]")
             print(f"Outcome: {status_symbol}")
@@ -61,7 +61,7 @@ def main() -> None:
                 print("\nDetailed Test Failures:")
                 for test in report.test_results:
                     if test.status != "PASSED":
-                        print(f"  ✗ {test.name}")
+                        print(f"  [x] {test.name}")
                 if report.raw_stdout:
                     print("\nPytest Output:\n" + report.raw_stdout)
         sys.exit(0 if report.passed else 1)
@@ -79,8 +79,8 @@ def main() -> None:
             print(json.dumps(json_data, indent=2))
         else:
             print("\n================ SignalGuard Evaluation Laboratory Matrix ================")
-            print(f"{'Task ID':<35} {'Starter (Buggy)':<18} {'Solution (Fix)':<18} {'Verified?'}")
-            print("-" * 80)
+            print(f"{'Task ID':<35} {'Starter (Buggy)':<20} {'Solution (Fix)':<18} {'Verified?'}")
+            print("-" * 85)
             all_verified = True
             for task_id, res in results.items():
                 starter_passed = res["starter"].passed
@@ -90,12 +90,12 @@ def main() -> None:
                 if not verified:
                     all_verified = False
 
-                starter_str = "✗ FAIL (Expected)" if not starter_passed else "! PASS (Unexpected)"
-                solution_str = "✓ PASS (Expected)" if solution_passed else "✗ FAIL (Unexpected)"
-                verified_str = "✓ VERIFIED" if verified else "✗ FAILED"
+                starter_str = "[FAIL] (Expected)" if not starter_passed else "[PASS] (Unexpected)"
+                solution_str = "[PASS] (Expected)" if solution_passed else "[FAIL] (Unexpected)"
+                verified_str = "[VERIFIED]" if verified else "[FAILED]"
 
-                print(f"{task_id:<35} {starter_str:<18} {solution_str:<18} {verified_str}")
-            print("=" * 80)
+                print(f"{task_id:<35} {starter_str:<20} {solution_str:<18} {verified_str}")
+            print("=" * 85)
 
             if all_verified and len(results) > 0:
                 print("All evaluation tasks verified successfully! Deterministic benchmarks confirmed.\n")

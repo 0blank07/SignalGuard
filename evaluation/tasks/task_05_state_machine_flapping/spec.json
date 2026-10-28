@@ -1,0 +1,8 @@
+{
+  "id": "task_05_state_machine_flapping",
+  "title": "Health State Transition Flapping Suppression",
+  "category": "state-machine",
+  "difficulty": "medium",
+  "timeout_seconds": 15,
+  "description": "Fix an oscillating health state machine that triggers alert storms and flapping incidents by toggling between HEALTHY and DOWN on single transient network hiccups."
+}
